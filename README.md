@@ -1,5 +1,5 @@
-# ded
-Data Entry Display for DCS World
+# DED
+# Data Entry Display for DCS World #
 
 
 /*  DED v1.0 Created by James Storey in May 2022, https://github.com/jg-storey/ded
@@ -21,3 +21,18 @@ Data Entry Display for DCS World
  *  When entering data between the highlighted asterisks the field does not highlight. I haven't figured out an efficient way to do this yet.
  */
 
+# Hardware connection #
+    
+  OLED   =>    Arduino Nano  
+  *1. GND    ->    GND  
+  *2. VCC    ->    3.3V  
+  *4. SCL    ->    SCK  (D13)  
+  *5. SDI    ->    MOSI (D11)  
+  *14. DC     ->    D9  
+  *15. RES    ->    D8  
+  *16. CS     ->    D10  
+  
+  Toggle switch 
+  (optional)  
+  *1.         ->    D2  
+  *2.         ->    GND  
