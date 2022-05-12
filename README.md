@@ -40,3 +40,5 @@ There is still some space to add other items in both modes.
   |Toggle switch <br> (optional) |   |   |
   |  1.      |   ->  |  D2   |
   |  2.      |   ->  |  GND  |
+
+<img src="img/hookup.jpg" width=500>
