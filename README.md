@@ -13,6 +13,8 @@ A toggle switch (i.e. not a pushbutton) wired between pin D2 and GND allows the 
 If a switch is not connected, the mode defaults to the F-16.
 The selected mode activates after disconnecting and connecting to the Arduino in the DCS-BIOS Hub, or by resetting the Arduino.
 There is probably a better way to change modes using an interrupt.
+
+<img src="img/stpt.jpg" width=500>
  
 The F-18 display also includes a fuel reading and a master arm indicator. 
 There is still some space to add other items in both modes.
