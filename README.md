@@ -19,6 +19,8 @@ There is probably a better way to change modes using an interrupt.
 The F-18 display also includes a fuel reading and a master arm indicator. 
 There is still some space to add other items in both modes.
 
+<img src="img/ufc.jpg" width=500>
+
 ## Known issues. 
 - The DEST page in the LIST menu comes up blank. This appears to be an issue with DCS-BIOS.
 - When entering data between the highlighted asterisks the field does not highlight. I haven't figured out how to do this yet.
