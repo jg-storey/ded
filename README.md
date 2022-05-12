@@ -42,3 +42,9 @@ There is still some space to add other items in both modes.
   |  2.      |   ->  |  GND  |
 
 <img src="img/hookup.jpg" width=500>
+
+# Font
+
+I created a custom font by studying screen captures of the in-game DED. It is stored as an array of hexadecimal values in the er_oled.h header file following the scheme shown below.
+
+<img src="img/font.jpg" width=500>
