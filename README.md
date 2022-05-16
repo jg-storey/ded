@@ -48,3 +48,9 @@ There is still some space to add other items in both modes.
 I created a custom font by inspecting screen captures of the in-game DED. It is stored as an array of hexadecimal values in the er_oled.h header file following the scheme shown below.
 
 <img src="img/font.jpg" width=500>
+
+# Build Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5iGow-Ebc8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
