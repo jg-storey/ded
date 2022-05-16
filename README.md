@@ -51,6 +51,6 @@ I created a custom font by inspecting screen captures of the in-game DED. It is 
 
 # Build Video
 
-<a href="https://youtu.be/5iGow-Ebc8M"><img src="img/ded.jpg" width=500 alt="View the build video on YouTube"></a>
+[![View the build video on YouTube](img/dedvideothumb.jpg)](http://www.youtube.com/watch?v=5iGow-Ebc8M "D.I.Y. Data Entry Display for DCS World")
 
 
