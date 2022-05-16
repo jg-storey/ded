@@ -51,6 +51,6 @@ I created a custom font by inspecting screen captures of the in-game DED. It is 
 
 # Build Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5iGow-Ebc8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<a href="https://youtu.be/5iGow-Ebc8M"><img src="img/ded.jpg" width=500 alt="View the build video on YouTube"></a>
 
 
