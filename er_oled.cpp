@@ -190,7 +190,7 @@ void Data_processing(uint8_t temp)  //turns 1byte B/W data to 4 bye gray data  w
   temp1=temp1|temp2;
   data(temp1);  //Pixel7,Pixel8               
 }
-
+/*
 void er_oled_bitmap_mono(const uint8_t * pBuf)
 { uint8_t row,col,dat; 
   er_oled_SetWindow(0, 0, 255/4, 63); 
@@ -213,3 +213,4 @@ void er_oled_bitmap_gray(const uint8_t * pBuf)
         }
   }    	
 }
+*/
