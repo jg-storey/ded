@@ -1,4 +1,7 @@
-/*  DED v1.0 Created by James Storey in May 2022, github.com/jg-storey/ded
+/*   DED v1.15 Implemented interrupt method to switch mode.
+ *   DED v1.1 Added antenna symbols that replace the radio channels during radio operation in F-18 mode.
+ *   Changed LIST and MISC detection method as just checking the first row wasn't robust enough.
+ *  DED v1.0 Created by James Storey in May 2022, github.com/jg-storey/ded
  *  Arduino code to display F-16 Data Entry Display and F-18 Upfront Controls information from DCS-BIOS
  *  on a ER-OLEDM028-1 2.8" 256x64 OLED display from BuyDisplay.com
  *  https://www.buydisplay.com/yellow-2-8-inch-arduino-raspberry-pi-oled-display-module-256x64-spi
@@ -47,11 +50,11 @@ Test OK : Arduino DUE,Arduino mega2560,Arduino UNO Board
     OLED   =>    Arduino
   *1. GND    ->    GND
   *2. VCC    ->    3.3
-  *4. SCL    ->    SCK
-  *5. SDI    ->    MOSI
-  *14. DC     ->    9
-  *15. RES    ->    8  
-  *16. CS     ->    10
+  *4. SCL    ->    SCK (D13)
+  *5. SDI    ->    MOSI (D11)
+  *14. DC     ->    D9
+  *15. RES    ->    D8  
+  *16. CS     ->    D10
 */
 
 
@@ -59,22 +62,21 @@ Test OK : Arduino DUE,Arduino mega2560,Arduino UNO Board
 #include "er_oled.h"
 
 
-boolean f16 = true; // flag to display F-16 DED
-boolean f18 = false; // flag to display F-18 UFC
-boolean isList = false; //flag to indicate if we are on the LIST or MISC DED pages
+volatile boolean f16 = true; // flag to display F-16 DED
+volatile boolean f18 = false; // flag to display F-18 UFC
+//boolean isList = false; //flag to indicate if we are on the LIST or MISC DED pages
+
+const int buttonPin = 2; //Toggle switch to change modes
+//variables to keep track of the timing of recent interrupts
+unsigned long button_time = 0;
+unsigned long last_button_time = 0;
 
 //F-16 DCS BIOS Functions
 
 void onDedLine1Change(char* newValue) {
     /* your code here */
     if(f16){
-      //Set isList to true if we are on the LIST or MISC pages
-      if(newValue[11]=='I' && newValue[12]=='S'){
-        isList=true;
-      }
-      else{
-        isList=false;
-      }
+      
       er_oled_dedstring(0,0,newValue,0); 
     }
 }
@@ -84,7 +86,9 @@ void onDedLine2Change(char* newValue) {
     /* your code here */
     if(f16){
       er_oled_dedstring(0,13,newValue,0); 
-      if(isList){
+      
+      //Highlight numbers if we are on the LIST or MISC pages
+      if(newValue[0]=='1' && (newValue[1]=='D' || newValue[1]=='C')){
         //Highlight the menu numbers
         er_oled_string(0,13,"1",1);
         er_oled_string(6*8,13,"2",1);
@@ -100,7 +104,8 @@ void onDedLine3Change(char* newValue) {
     /* your code here */
     if(f16){
       er_oled_dedstring(0,26,newValue,0); 
-      if(isList){
+      
+      if(newValue[0]=='4' && (newValue[1]=='N' || newValue[1]=='I')){
         er_oled_string(0,26,"4",1);
         er_oled_string(6*8,26,"5",1);
         er_oled_string(12*8,26,"6",1);
@@ -114,7 +119,8 @@ void onDedLine4Change(char* newValue) {
     /* your code here */
     if(f16){
       er_oled_dedstring(0,39,newValue,0);  
-      if(isList){
+      
+      if(newValue[0]=='7' && (newValue[1]=='C' || newValue[1]=='D')){
         er_oled_string(0,39,"7",1);
         er_oled_string(6*8,39,"8",1);
         er_oled_string(12*8,39,"9",1);
@@ -292,19 +298,9 @@ void onMasterArmSwChange(unsigned int newValue) {
 }
 DcsBios::IntegerBuffer masterArmSwBuffer(0x740c, 0x2000, 13, onMasterArmSwChange);
 
-
-
-void setup() {
-
-  //set D2 as a switch to select F-16 or F-18 displays. If unconnected it defaults to F-16.
-  pinMode(2, INPUT_PULLUP);
-  f16 = digitalRead(2);
-  f18 = !f16;
-
-  /* initialize the display */
-  er_oled_begin();
+void splashScreen(){
   er_oled_clear();
-  er_oled_string(12*8,13,"DED V1.0",1);
+  er_oled_string(12*8,13,"DED V1.15",1);
   er_oled_string(4*8,26,"GITHUB.COM/JG-STOREY/DED",0);
   if(f16){
     er_oled_string(11*8,52,"F-16 MODE",0);
@@ -312,8 +308,34 @@ void setup() {
   else if(f18){
     er_oled_string(11*8,52,"F/A-18 MODE",0);
   }
+  
+  
+}
+
+void button_ISR(){
+  button_time = millis();
+  //check to see if increment() was called in the last 250 milliseconds
+  if (button_time - last_button_time > 250){
+    f16 = digitalRead(buttonPin);
+    f18 = !f16;
+    splashScreen();
+    er_oled_clear();
+    last_button_time = button_time;
+  }
+}
+
+void setup() {
+
+  //set D2 as a switch to select F-16 or F-18 displays. If unconnected it defaults to F-16.
+  pinMode(buttonPin, INPUT_PULLUP);
+  f16 = digitalRead(buttonPin);
+  f18 = !f16;
+  /* initialize the display */
+  er_oled_begin();
+  splashScreen();
   delay(2000);
   er_oled_clear();
+  attachInterrupt(digitalPinToInterrupt(buttonPin), button_ISR, CHANGE);  
   
   DcsBios::setup();
   
