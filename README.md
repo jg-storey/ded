@@ -2,24 +2,29 @@
 # Data Entry Display for DCS World 
 
 
-DED v1.0 Created by James Storey, May 2022, https://github.com/jg-storey/ded  
-Arduino code to display F-16 Data Entry Display and F-18 Upfront Controls information from DCS-BIOS
+DED v1.15 Created by James Storey, May 2022, https://github.com/jg-storey/ded  
+Arduino code to display F-16 Data Entry Display and F/A-18 Upfront Controls information from DCS-BIOS
 on a ER-OLEDM028-1 2.8" 256x64 OLED display from BuyDisplay.com
 https://www.buydisplay.com/yellow-2-8-inch-arduino-raspberry-pi-oled-display-module-256x64-spi  
 Tested with DCS-BIOS v0.10.0
 https://github.com/dcs-bios/dcs-bios/releases
  
-A toggle switch (i.e. not a pushbutton) wired between pin D2 and GND allows the user to select between F-16 and F-18 modes.
+A toggle switch (i.e. not a pushbutton) wired between pin D2 and GND allows the user to select between F-16 and F/A-18 modes.
 If a switch is not connected, the mode defaults to the F-16.
 The selected mode activates after disconnecting and connecting to the Arduino in the DCS-BIOS Hub, or by resetting the Arduino.
-There is probably a better way to change modes using an interrupt.
 
 <img src="img/stpt.jpg" width=500>
  
-The F-18 display also includes a fuel reading and a master arm indicator. 
+The F/A-18 display also includes a fuel reading and a master arm indicator. 
 There is still some space to add other items in both modes.
 
 <img src="img/ufc.jpg" width=500>
+
+## Changelog
+### v1.15
+- Uses an interrupt to change the mode. This means that the connection to DCS-BIOS no longer needs to be reset after changing modes.
+- Added antenna symbols that appear in place of the radio channel number during transmit/receive in the F/A-18.
+- Changed LIST and MISC page detection method as the previous approach wasn't working in all circumstances.
 
 ## Known issues. 
 - The DEST page in the LIST menu comes up blank. This appears to be an issue with DCS-BIOS.
@@ -50,7 +55,7 @@ I created a custom font by inspecting screen captures of the in-game DED. It is 
 <img src="img/font.jpg" width=500>
 
 # Build Video
-
+Note: this video shows operation with v1.0 code.  
 [![View the build video on YouTube](img/dedvideothumb.jpg)](http://www.youtube.com/watch?v=5iGow-Ebc8M "D.I.Y. Data Entry Display for DCS World")
 
 
