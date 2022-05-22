@@ -11,7 +11,6 @@ https://github.com/dcs-bios/dcs-bios/releases
  
 A toggle switch (i.e. not a pushbutton) wired between pin D2 and GND allows the user to select between F-16 and F/A-18 modes.
 If a switch is not connected, the mode defaults to the F-16.
-The selected mode activates after disconnecting and connecting to the Arduino in the DCS-BIOS Hub, or by resetting the Arduino.
 
 <img src="img/stpt.jpg" width=500>
  
