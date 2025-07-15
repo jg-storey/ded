@@ -80,7 +80,7 @@ void onDedLine1Change(char* newValue) {
       er_oled_dedstring(0,0,newValue,0); 
     }
 }
-DcsBios::StringBuffer<29> dedLine1Buffer(0x4500, onDedLine1Change);
+DcsBios::StringBuffer<29> dedLine1Buffer(F_16C_50_DED_LINE_1_A, onDedLine1Change);
 
 void onDedLine2Change(char* newValue) {
     /* your code here */
@@ -97,7 +97,7 @@ void onDedLine2Change(char* newValue) {
       }
     }  
 }
-DcsBios::StringBuffer<29> dedLine2Buffer(0x451e, onDedLine2Change);
+DcsBios::StringBuffer<29> dedLine2Buffer(F_16C_50_DED_LINE_2_A, onDedLine2Change);
 
 
 void onDedLine3Change(char* newValue) {
@@ -113,7 +113,7 @@ void onDedLine3Change(char* newValue) {
       }
     }  
 }
-DcsBios::StringBuffer<29> dedLine3Buffer(0x453c, onDedLine3Change);
+DcsBios::StringBuffer<29> dedLine3Buffer(F_16C_50_DED_LINE_3_A, onDedLine3Change);
 
 void onDedLine4Change(char* newValue) {
     /* your code here */
@@ -128,7 +128,7 @@ void onDedLine4Change(char* newValue) {
       }
     }
 }
-DcsBios::StringBuffer<29> dedLine4Buffer(0x455a, onDedLine4Change);
+DcsBios::StringBuffer<29> dedLine4Buffer(F_16C_50_DED_LINE_4_A, onDedLine4Change);
 
 void onDedLine5Change(char* newValue) {
     /* your code here */
@@ -136,7 +136,7 @@ void onDedLine5Change(char* newValue) {
       er_oled_dedstring(0,52,newValue,0); 
     }  
 }
-DcsBios::StringBuffer<29> dedLine5Buffer(0x4578, onDedLine5Change);
+DcsBios::StringBuffer<29> dedLine5Buffer(F_16C_50_DED_LINE_5_A, onDedLine5Change);
 
 
 
@@ -148,7 +148,7 @@ void onUfcComm1DisplayChange(char* newValue) {
       er_oled_string(0*8,52,newValue,0);
     }
 }
-DcsBios::StringBuffer<2> ufcComm1DisplayBuffer(0x7424, onUfcComm1DisplayChange);
+DcsBios::StringBuffer<2> ufcComm1DisplayBuffer(FA_18C_hornet_UFC_COMM1_DISPLAY_A, onUfcComm1DisplayChange);
 
 
 void onUfcComm2DisplayChange(char* newValue) {
@@ -157,7 +157,7 @@ void onUfcComm2DisplayChange(char* newValue) {
       er_oled_string(5*8,52,newValue,0);
     }
 }
-DcsBios::StringBuffer<2> ufcComm2DisplayBuffer(0x7426, onUfcComm2DisplayChange);
+DcsBios::StringBuffer<2> ufcComm2DisplayBuffer(FA_18C_hornet_UFC_COMM2_DISPLAY_A, onUfcComm2DisplayChange);
 
 
 void onUfcOptionCueing1Change(char* newValue) {
@@ -166,7 +166,7 @@ void onUfcOptionCueing1Change(char* newValue) {
       er_oled_string(12*8,0,newValue,0);
     }  
 }
-DcsBios::StringBuffer<1> ufcOptionCueing1Buffer(0x7428, onUfcOptionCueing1Change);
+DcsBios::StringBuffer<1> ufcOptionCueing1Buffer(FA_18C_hornet_UFC_OPTION_CUEING_1_A, onUfcOptionCueing1Change);
 
 
 void onUfcOptionCueing2Change(char* newValue) {
@@ -175,7 +175,7 @@ void onUfcOptionCueing2Change(char* newValue) {
       er_oled_string(12*8,13,newValue,0);
     }
 }
-DcsBios::StringBuffer<1> ufcOptionCueing2Buffer(0x742a, onUfcOptionCueing2Change);
+DcsBios::StringBuffer<1> ufcOptionCueing2Buffer(FA_18C_hornet_UFC_OPTION_CUEING_2_A, onUfcOptionCueing2Change);
 
 
 void onUfcOptionCueing3Change(char* newValue) {
@@ -184,7 +184,7 @@ void onUfcOptionCueing3Change(char* newValue) {
       er_oled_string(12*8,26,newValue,0);
     }  
 }
-DcsBios::StringBuffer<1> ufcOptionCueing3Buffer(0x742c, onUfcOptionCueing3Change);
+DcsBios::StringBuffer<1> ufcOptionCueing3Buffer(FA_18C_hornet_UFC_OPTION_CUEING_3_A, onUfcOptionCueing3Change);
 
 
 void onUfcOptionCueing4Change(char* newValue) {
@@ -193,7 +193,7 @@ void onUfcOptionCueing4Change(char* newValue) {
       er_oled_string(12*8,39,newValue,0);
     }
 }
-DcsBios::StringBuffer<1> ufcOptionCueing4Buffer(0x742e, onUfcOptionCueing4Change);
+DcsBios::StringBuffer<1> ufcOptionCueing4Buffer(FA_18C_hornet_UFC_OPTION_CUEING_4_A, onUfcOptionCueing4Change);
 
 void onUfcOptionCueing5Change(char* newValue) {
     /* your code here */
@@ -201,7 +201,7 @@ void onUfcOptionCueing5Change(char* newValue) {
       er_oled_string(12*8,52,newValue,0);
     }
 }
-DcsBios::StringBuffer<1> ufcOptionCueing5Buffer(0x7430, onUfcOptionCueing5Change);
+DcsBios::StringBuffer<1> ufcOptionCueing5Buffer(FA_18C_hornet_UFC_OPTION_CUEING_5_A, onUfcOptionCueing5Change);
 
 
 void onUfcOptionDisplay1Change(char* newValue) {
@@ -210,7 +210,7 @@ void onUfcOptionDisplay1Change(char* newValue) {
       er_oled_string(13*8,0,newValue,0);
     }
 }
-DcsBios::StringBuffer<4> ufcOptionDisplay1Buffer(0x7432, onUfcOptionDisplay1Change);
+DcsBios::StringBuffer<4> ufcOptionDisplay1Buffer(FA_18C_hornet_UFC_OPTION_DISPLAY_1_A, onUfcOptionDisplay1Change);
 
 
 void onUfcOptionDisplay2Change(char* newValue) {
@@ -219,7 +219,7 @@ void onUfcOptionDisplay2Change(char* newValue) {
       er_oled_string(13*8,13,newValue,0);
     }
 }
-DcsBios::StringBuffer<4> ufcOptionDisplay2Buffer(0x7436, onUfcOptionDisplay2Change);
+DcsBios::StringBuffer<4> ufcOptionDisplay2Buffer(FA_18C_hornet_UFC_OPTION_DISPLAY_2_A, onUfcOptionDisplay2Change);
 
 void onUfcOptionDisplay3Change(char* newValue) {
     /* your code here */
@@ -227,7 +227,7 @@ void onUfcOptionDisplay3Change(char* newValue) {
       er_oled_string(13*8,26,newValue,0);
     }
 }
-DcsBios::StringBuffer<4> ufcOptionDisplay3Buffer(0x743a, onUfcOptionDisplay3Change);
+DcsBios::StringBuffer<4> ufcOptionDisplay3Buffer(FA_18C_hornet_UFC_OPTION_DISPLAY_3_A, onUfcOptionDisplay3Change);
 
 void onUfcOptionDisplay4Change(char* newValue) {
     /* your code here */
@@ -235,7 +235,7 @@ void onUfcOptionDisplay4Change(char* newValue) {
       er_oled_string(13*8,39,newValue,0);
     }
 }
-DcsBios::StringBuffer<4> ufcOptionDisplay4Buffer(0x743e, onUfcOptionDisplay4Change);
+DcsBios::StringBuffer<4> ufcOptionDisplay4Buffer(FA_18C_hornet_UFC_OPTION_DISPLAY_4_A, onUfcOptionDisplay4Change);
 
 void onUfcOptionDisplay5Change(char* newValue) {
     /* your code here */
@@ -243,7 +243,7 @@ void onUfcOptionDisplay5Change(char* newValue) {
       er_oled_string(13*8,52,newValue,0);
     }
 }
-DcsBios::StringBuffer<4> ufcOptionDisplay5Buffer(0x7442, onUfcOptionDisplay5Change);
+DcsBios::StringBuffer<4> ufcOptionDisplay5Buffer(FA_18C_hornet_UFC_OPTION_DISPLAY_5_A, onUfcOptionDisplay5Change);
 
 
 void onUfcScratchpadNumberDisplayChange(char* newValue) {
@@ -252,7 +252,7 @@ void onUfcScratchpadNumberDisplayChange(char* newValue) {
       er_oled_string(3*8,0,newValue,0);
     }
 }
-DcsBios::StringBuffer<8> ufcScratchpadNumberDisplayBuffer(0x7446, onUfcScratchpadNumberDisplayChange);
+DcsBios::StringBuffer<8> ufcScratchpadNumberDisplayBuffer(FA_18C_hornet_UFC_SCRATCHPAD_NUMBER_DISPLAY_A, onUfcScratchpadNumberDisplayChange);
 
 
 
@@ -262,7 +262,7 @@ void onUfcScratchpadString1DisplayChange(char* newValue) {
       er_oled_string(0*8,0,newValue,0);
     }
 }
-DcsBios::StringBuffer<2> ufcScratchpadString1DisplayBuffer(0x744e, onUfcScratchpadString1DisplayChange);
+DcsBios::StringBuffer<2> ufcScratchpadString1DisplayBuffer(FA_18C_hornet_UFC_SCRATCHPAD_STRING_1_DISPLAY_A, onUfcScratchpadString1DisplayChange);
 
 void onUfcScratchpadString2DisplayChange(char* newValue) {
     /* your code here */
@@ -270,7 +270,7 @@ void onUfcScratchpadString2DisplayChange(char* newValue) {
       er_oled_string(2*8,0,newValue,0);
     }
 }
-DcsBios::StringBuffer<2> ufcScratchpadString2DisplayBuffer(0x7450, onUfcScratchpadString2DisplayChange);
+DcsBios::StringBuffer<2> ufcScratchpadString2DisplayBuffer(FA_18C_hornet_UFC_SCRATCHPAD_STRING_2_DISPLAY_A, onUfcScratchpadString2DisplayChange);
 
 
 void onIfeiFuelUpChange(char* newValue) {
@@ -279,12 +279,12 @@ void onIfeiFuelUpChange(char* newValue) {
       er_oled_string(20*8,26,newValue,0);
     }
 }
-DcsBios::StringBuffer<6> ifeiFuelUpBuffer(0x748a, onIfeiFuelUpChange);
+DcsBios::StringBuffer<6> ifeiFuelUpBuffer(FA_18C_hornet_IFEI_FUEL_UP_A, onIfeiFuelUpChange);
 
 void onMasterModeAaLtChange(unsigned int newValue) {
     /* your code here */
 }
-DcsBios::IntegerBuffer masterModeAaLtBuffer(0x740c, 0x0200, 9, onMasterModeAaLtChange);
+DcsBios::IntegerBuffer masterModeAaLtBuffer(FA_18C_hornet_MASTER_MODE_AA_LT, onMasterModeAaLtChange);
 
 void onMasterArmSwChange(unsigned int newValue) {
     /* your code here */
@@ -296,7 +296,7 @@ void onMasterArmSwChange(unsigned int newValue) {
     }
   }
 }
-DcsBios::IntegerBuffer masterArmSwBuffer(0x740c, 0x2000, 13, onMasterArmSwChange);
+DcsBios::IntegerBuffer masterArmSwBuffer(FA_18C_hornet_MASTER_ARM_SW, onMasterArmSwChange);
 
 void splashScreen(){
   er_oled_clear();
